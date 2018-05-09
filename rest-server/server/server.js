@@ -18,7 +18,7 @@ app.use(require('./routes/usuario'));
 
 
 // Conexion con mongo
-mongoose.connect('mongodb://localhost:27017/comercio', (err, res) => {
+mongoose.connect(process.env.URLDB, (err, res) => {
     if (err) throw err;
 
     console.log('Base de datos ONLINE');
