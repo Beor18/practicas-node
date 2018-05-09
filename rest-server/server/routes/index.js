@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 
-app.use(require('./routes/usuario'));
-app.use(require('./routes/login'));
+app.use(require('./usuario'));
+app.use(require('./login'));
 
 module.exports = app;
