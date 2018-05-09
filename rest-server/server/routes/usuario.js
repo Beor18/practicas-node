@@ -23,7 +23,7 @@ app.get('/usuarios', function(req, res) {
     let limite = req.query.limite || 5;
     limite = Number(limite);
 
-    Usuario.find({}, 'nombre email role estado google img')
+    Usuario.find({ estado: true }, 'nombre email role estado google img')
         .skip(desde)
         .limit(limite)
         .exec((err, usuarios) => {
@@ -36,7 +36,7 @@ app.get('/usuarios', function(req, res) {
             }
 
             // Se agrega conteo de registros
-            Usuario.count({}, (err, conteo) => {
+            Usuario.count({ estado: true }, (err, conteo) => {
 
                 res.json({
                     ok: true,
@@ -113,7 +113,14 @@ app.delete('/usuarios/:id', function(req, res) {
 
     // Se agrega metodo borrar usuario
 
-    Usuario.findByIdAndRemove(id, (err, usuarioBorrado) => {
+    //Usuario.findByIdAndRemove(id, (err, usuarioBorrado) => {
+
+    // Cambiamos el estado a false en vez de eliminar todo el usuario
+
+    let cambiaEstado = {
+        estado: false
+    }
+    Usuario.findByIdAndUpdate(id, cambiaEstado, { new: true }, (err, usuarioBorrado) => {
         if (err) {
             return res.status(400).json({
                 ok: false,
