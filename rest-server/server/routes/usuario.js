@@ -35,11 +35,16 @@ app.get('/usuarios', function(req, res) {
 
             }
 
-            res.json({
-                ok: true,
-                usuarios
+            // Se agrega conteo de registros
+            Usuario.count({}, (err, conteo) => {
+
+                res.json({
+                    ok: true,
+                    usuarios,
+                    cuantos: conteo
+                });
             });
-        })
+        });
 
     // Fin paginacion de usuarios
 
