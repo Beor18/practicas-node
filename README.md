@@ -8,7 +8,7 @@ Demo en la carpeta rest-server y desplegado en heroku:
 - https://comerciorest.herokuapp.com/usuarios?limite=10&desde=0
 
 
-Todavia falta arreglar un par de cosas :)
+[ Arreglado ] Funciona login con Gmail
 
 
 Por Fernando Lopez - 2018
