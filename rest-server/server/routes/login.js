@@ -59,7 +59,7 @@ app.post('/login', (req, res) => {
 
 // Configuraciones de google
 
-async function verify() {
+async function verify(token) {
     const ticket = await client.verifyIdToken({
         idToken: token,
         audience: process.env.CLIENT_ID, // Specify the CLIENT_ID of the app that accesses the backend
@@ -77,7 +77,7 @@ async function verify() {
 
 }
 
-app.post('/google', async(req, res) => {
+app.post('/google', async (req, res) => {
 
 
     let token = req.body.idtoken;
