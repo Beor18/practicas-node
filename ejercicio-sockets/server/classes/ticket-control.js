@@ -16,7 +16,7 @@ class TicketControl {
         this.ultimo = 0;
         this.hoy = new Date().getDate();
         this.tickets = [];
-        this.ultimosCuatro = [];
+        this.ultimoscuatro = [];
 
         let data = require('../data/data.json');
 
@@ -24,7 +24,7 @@ class TicketControl {
 
             this.ultimo = data.ultimo;
             this.tickets = data.tickets;
-            this.ultimosCuatro = data.ultimosCuatro;
+            this.ultimoscuatro = data.ultimoscuatro;
 
         } else {
             this.reiniciarConteo();
@@ -58,12 +58,25 @@ class TicketControl {
 
         let atenderTicket = new Ticket(numeroTicket, escritorio);
 
+        /////////////////////////////////////////////////////////
+        //
         // Agrego el ticket al inicio del arreglo - no al final
-        this.ultimosCuatro.unshift(atenderTicket);
+        //
+        /////////////////////////////////////////////////////////
+        // 
+        // Aca me sale un error por consola 
+        //
+        // TypeError: Cannot read property 'unshift' of undefined
+        //
+        /////////////////////////////////////////////////////////
 
+        this.ultimoscuatro.unshift(atenderTicket);
+
+        /////////////////////////////////////////////////////////
+        //
         // Verificar que solo halla 4 tickets en ese arreglo
-        if (this.ultimosCuatro.length > 4) {
-            this.ultimosCuatro.splice(-1, 1); //borra el ultimo elemento
+        if (this.ultimoscuatro.length > 4) {
+            this.ultimoscuatro.splice(-1, 1); // borra el ultimo elemento
         }
 
         //console.log('Ultimos 4 tickets');
@@ -78,7 +91,7 @@ class TicketControl {
     reiniciarConteo() {
         this.ultimo = 0;
         this.tickets = [];
-        this.ultimosCuatro = [];
+        this.ultimoscuatro = [];
 
         console.log('se ha iniciado el sistema');
         this.grabarArchivo();
@@ -89,7 +102,7 @@ class TicketControl {
             ultimo: this.ultimo,
             hoy: this.hoy,
             tickets: this.tickets,
-            ultimosCuatro: this.ultimosCuatro
+            ultimoscuatro: this.ultimoscuatro
         };
 
         let jsonDataString = JSON.stringify(jsonData);
