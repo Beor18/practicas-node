@@ -32,7 +32,7 @@ let urlDB;
 if (process.env.NODE_ENV === 'dev') {
     urlDB = 'mongodb://localhost:27017/comercio';
 } else {
-    urlDB = '';
+    urlDB = 'mongodb://comercio:comercio18@ds119930.mlab.com:19930/comercio';
 }
 
 process.env.URLDB = urlDB;
