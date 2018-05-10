@@ -13,4 +13,10 @@ io.on('connection', (client) => {
         callback(siguiente);
     });
 
+    // Emitir estado actual getUltimoTicket()
+
+    client.emit('estadoActual', {
+        actual: ticketControl.getUltimoTicket()
+    });
+
 });

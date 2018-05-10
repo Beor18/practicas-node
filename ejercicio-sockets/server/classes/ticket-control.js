@@ -25,6 +25,10 @@ class TicketControl {
 
     }
 
+    getUltimoTicket() {
+        return `Ticket ${ this.ultimo }`;
+    }
+
     reiniciarConteo() {
         this.ultimo = 0;
         console.log('se ha iniciado el sistema');
