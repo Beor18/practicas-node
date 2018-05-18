@@ -1,0 +1,57 @@
+<nav class="navbar navbar-default navbar-fixed-top" style="padding:10px;">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+            <img alt="SU LOGO" src="...">
+        </a>
+    </div>
+
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li class="navbar-right" role="presentation"><a href="/logout" class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>
+
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- COMIENZO SIDEBAR -->
+
+        <div class="col-md-2 sidebar">
+            <div class="media page-header" style="padding-top: 30px;">
+                <div class="media-left media-top">
+                    <a href="#">
+                        <img class="media-object img-circle" src="<%= user.local.foto %>" alt="..." style="width: 64px; height: 64px;">
+                    </a>
+                </div>
+
+                <div class="media-body" style="padding-top: 10px;">
+                    <h4 class="media-heading" style="font-size:15px;"><strong><%= user.local.username %></strong></small>
+                    </h4>
+                    <p>Soy de
+                        <%= user.local.country %>
+                    </p>
+                </div>
+            </div>
+
+            <nav style="padding-top: 10px; padding-bottom: 20px;">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation" class=""><a href="http://localhost:3000/perfil"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+
+                    <li role="presentation" class="">
+                        <a href="http://localhost/control/index.php/admin/agregar"> <span class="glyphicon glyphicon-ok"></span> Otra seccion</a>
+                    </li>
+
+                    <li role="presentation" class="">
+                        <a href="http://localhost/control/index.php/admin/wordpress"> <span class="glyphicon glyphicon-ok"></span> Una seccion</a>
+                    </li>
+
+                    <li role="presentation" class=""><a href="http://localhost/control/index.php/admin/usuarios"><span class="glyphicon glyphicon-user"></span> Usuarios</a></li>
+
+                </ul>
+            </nav>
+
+        </div>
+
+        <!-- FIN SIDEBAR -->

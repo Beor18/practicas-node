@@ -202,5 +202,46 @@
             -webkit-transition-delay: 0.1s;
             transition-delay: 0.1s;
         }
+        
+        html,
+        body,
+        .container-fluid,
+        .row {
+            height: 100%;
+        }
+        
+        .sidebar {
+            background-color: #CCCCCC;
+            margin-top: 71px;
+        }
+        
+        .content {
+            margin-top: 71px;
+            padding-top: 20px;
+        }
+        
+        footer {
+            background: #000000 !important;
+        }
+        
+        .btn-danger {
+            margin-top: 10px !important;
+            font-size: 12px !important;
+            padding: 8px !important;
+        }
+        
+        @media (min-width: 992px) {
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                z-index: 1000;
+                display: block;
+                background-color: rgba(228, 228, 228, 0.95);
+            }
+        }
     </style>
 </head>
+
+<body>

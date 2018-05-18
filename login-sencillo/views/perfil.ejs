@@ -1,12 +1,44 @@
-<div class="jumbotron text-center col-md-12">
+<% include partials/head %>
 
-    <h1>Bienvenido señor
-        <%= user.local.username %>
-    </h1>
-    <h2>Usted vive en:
-        <%= user.local.country %>
-    </h2>
+    <% include partials/sidebar %>
+        <div class="col-md-10 col-md-offset-2 content">
+            <div class="jumbotron">
 
-    <img src="<%= user.local.foto %>" />
-    <a href="/logout" class="btn btn-danger">Salir</a>
-</div>
+                <div class="page-header">
+                    <h2>Login <small>realizado en NodeJS</small></h2>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="http://1.bp.blogspot.com/-LLAgTkEnrKg/U5NdootF24I/AAAAAAAAAIc/86hLho4ZPIM/s1600/Untitled.png" alt="...">
+                    </a>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="http://1.bp.blogspot.com/-LLAgTkEnrKg/U5NdootF24I/AAAAAAAAAIc/86hLho4ZPIM/s1600/Untitled.png" alt="...">
+                    </a>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="http://1.bp.blogspot.com/-LLAgTkEnrKg/U5NdootF24I/AAAAAAAAAIc/86hLho4ZPIM/s1600/Untitled.png" alt="...">
+                    </a>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="http://1.bp.blogspot.com/-LLAgTkEnrKg/U5NdootF24I/AAAAAAAAAIc/86hLho4ZPIM/s1600/Untitled.png" alt="...">
+                    </a>
+                </div>
+
+            </div>
+
+            <h2>ESTO ES UNA PRUEBA</h2>
+
+        </div>
+
+        <% include partials/pie %>
