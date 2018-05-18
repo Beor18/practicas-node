@@ -6,6 +6,7 @@ var userSchema = mongoose.Schema({
         username: { type: String, unique: true, require: true },
         password: { type: String, require: true },
         country: { type: String, require: true },
+        foto: { type: String, require: true }
     },
 });
 
