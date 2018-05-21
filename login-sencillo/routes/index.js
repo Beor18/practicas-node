@@ -1,7 +1,10 @@
-var express = require('express');
-var passport = require('passport');
-var router = express.Router();
-var path = require('path');
+const express = require('express');
+const passport = require('passport');
+const router = express.Router();
+const path = require('path');
+
+const fileUpload = require('express-fileupload');
+router.use(fileUpload());
 
 
 router.get('/', (req, res, next) => {

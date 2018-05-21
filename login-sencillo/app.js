@@ -1,27 +1,27 @@
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+const index = require('./routes/index');
+const users = require('./routes/users');
 
 // Servidor escuchando en puerto 3000
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var mongoose = require('mongoose');
-var flash = require('connect-flash');
-var session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const mongoose = require('mongoose');
+const flash = require('connect-flash');
+const session = require('express-session');
 
-var configDB = require('./config/database');
+const configDB = require('./config/database');
 mongoose.Promise = global.Promise;
 mongoose.connect(configDB.url);
 
 
-var app = express();
+const app = express();
 
 function handler(req, res) {
     fs.readFile(__dirname + '/perfil.ejs', function(err, data) {
