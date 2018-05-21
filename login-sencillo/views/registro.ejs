@@ -2,7 +2,7 @@
 
     <div class="container-fluid formulario jumbotron text-center">
         <h2>Registrarse al Sistema</h2>
-        <form action="/registro" method="post">
+        <form action="/registro" method="post" encType="multipart/form-data">
             <div>
                 <input type="text" name="username" placeholder="Usuario">
             </div>
@@ -15,6 +15,10 @@
 
             <div>
                 <input type="text" name="foto" placeholder="Agregar Foto solo URL">
+            </div>
+
+            <div>
+                <input type="file" name="archivo" />
             </div>
 
             <div>
