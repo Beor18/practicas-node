@@ -11,10 +11,6 @@ router.get('/', (req, res, next) => {
     res.render('login', { message: req.flash('loginMessaje') });
 });
 
-router.get('/registro', (req, res) => {
-    res.render('registro', { message: req.flash('signupMessage') });
-});
-
 // Solo para el usuario
 
 
@@ -24,22 +20,34 @@ router.get('/perfil', isLoggedIn, (req, res) => {
 
 // FIN solo para el usuario
 
+// Solo para el ROLE ADMIN
+
+router.get('/registro', isLoggedIn, (req, res) => {
+    res.render('registro', { user: req.user, message: req.flash('signupMessage') });
+});
+
+// FIN solo para ROLE ADMIN
+
 router.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/');
 });
 
-router.post('/registro', passport.authenticate('local-signup', {
-    successRedirect: '/perfil',
-    failureRedirect: '/registro',
-    failureFlash: true,
-}));
+// Manejo de logn y registro
 
-router.post('/login', passport.authenticate('local-login', {
-    successRedirect: '/perfil',
+router.post('/registro', passport.authenticate('local-signup', {
     failureRedirect: '/login',
     failureFlash: true,
-}));
+}), function(req, res) {
+    res.redirect('/perfil?username=' + req.user.local.username);
+});
+
+router.post('/login', passport.authenticate('local-login', {
+    failureRedirect: '/login',
+    failureFlash: true,
+}), function(req, res) {
+    res.redirect('/perfil?username=' + req.user.local.username);
+});
 
 
 
