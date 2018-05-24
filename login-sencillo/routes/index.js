@@ -13,6 +13,19 @@ router.get('/', (req, res, next) => {
     res.render('login', { message: req.flash('loginMessaje') });
 });
 
+// BOLUDECES
+router.get('/dsdsfsd', (req, res) => {
+    res.writeHead(200, { 'content-type': 'text/plain' });
+    res.end('Hola Mundo');
+});
+
+router.get('/producto/dsdsfsd', (req, res) => {
+    res.writeHead(200, { 'content-type': 'text/plain' });
+    res.end('Hola Mundo');
+});
+
+// FIN BOLUDECES
+
 // Solo para el usuario
 
 
@@ -32,6 +45,8 @@ router.get('/nuevo', isLoggedIn, (req, res) => {
     });
 });
 
+// Se lista producto en formato JSON
+
 router.get('/listar-producto', isLoggedIn, (req, res, next) => {
     Productos.find(function(err, products) {
         if (err) return next(err);
@@ -40,6 +55,8 @@ router.get('/listar-producto', isLoggedIn, (req, res, next) => {
     });
     //res.render('nuevo.ejs', { user: req.user, producto: req.productos });
 });
+
+// SE AGREGA NUEVO PRODUCTO
 
 router.post('/nuevo', function(req, res) {
     let body = req.body
@@ -55,36 +72,49 @@ router.post('/nuevo', function(req, res) {
     });
 });
 
-// EDITAR PRODUCTO FALTA TERMINAR
-router.get('/editar/:id', isLoggedIn, (req, res, next) => {
+// VER PRODUCTO
+router.get('/producto/:id', isLoggedIn, (req, res, next) => {
     //let o_id = req.params.id;
     //let titulo = req.params.titulo;
 
     Productos.findById(req.params.id, function(err, person) {
         if (err) return next(err);
-        res.render('editar.ejs', {
+        res.render('producto.ejs', {
             user: req.user,
             person
         });
     });
 
 });
+// FIN VER PRODUCTO
 
-router.put('/update', (req, res) => {
+// router.put('/editar/:id', function(req, res) {
 
-    Productos.findOneAndUpdate(req.params.id, { titulo: req.body.titulo }, function(err, person) {
+//     Productos.findByIdAndUpdate(req.params.id, { new: true }, (err, person) => {
 
+//         if (err) {
+//             console.log(err);
+//             res.redirect('/perfil');
+//         } else {
+//             res.redirect('/nuevo', person);
+//         }
+
+//     });
+// });
+
+// ELIMINAR PRODUCTO
+
+router.get('/delete/:id', isLoggedIn, function(req, res) {
+    Productos.findByIdAndRemove(req.params.id, (err) => {
         if (err) {
-            console.log(err);
-            res.redirect("/perfil");
+            return res.send(err);
         } else {
-            res.redirect('/editar/' + _id);
+            res.redirect('/nuevo');
         }
-
     });
 });
 
-// FIN EDITAR PRODUCTO FALTA TERMINAR
+// FIN ELIMINAR PRODUCTO
 
 // FIN UN NUEVO CRUD //
 
