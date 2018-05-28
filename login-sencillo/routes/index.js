@@ -13,31 +13,37 @@ router.get('/', (req, res, next) => {
     res.render('login', { message: req.flash('loginMessaje') });
 });
 
-// BOLUDECES
-router.get('/dsdsfsd', (req, res) => {
-    res.writeHead(200, { 'content-type': 'text/plain' });
-    res.end('Hola Mundo');
-});
+// // BOLUDECES
+// router.get('/dsdsfsd', (req, res) => {
+//     res.writeHead(200, { 'content-type': 'text/plain' });
+//     res.end('Hola Mundo');
+// });
 
-router.get('/producto/dsdsfsd', (req, res) => {
-    res.writeHead(200, { 'content-type': 'text/plain' });
-    res.end('Hola Mundo');
-});
+// router.get('/producto/dsdsfsd', (req, res) => {
+//     res.writeHead(200, { 'content-type': 'text/plain' });
+//     res.end('Hola Mundo');
+// });
 
-// FIN BOLUDECES
+// // FIN BOLUDECES
 
 // Solo para el usuario
 
 
 router.get('/perfil', isLoggedIn, (req, res) => {
-    res.render('perfil.ejs', { user: req.user });
+    Productos.count(function(err, person) {
+        //if (err) return next(err);
+        res.render('perfil.ejs', {
+            user: req.user,
+            person
+        });
+    });
 });
 
 // Un nuevo CRUD //
 
 router.get('/nuevo', isLoggedIn, (req, res) => {
     Productos.find(function(err, person) {
-        if (err) return next(err);
+        //if (err) return next(err);
         res.render('nuevo.ejs', {
             user: req.user,
             person
@@ -78,7 +84,7 @@ router.get('/producto/:id', isLoggedIn, (req, res, next) => {
     //let titulo = req.params.titulo;
 
     Productos.findById(req.params.id, function(err, person) {
-        if (err) return next(err);
+        //if (err) return next(err);
         res.render('producto.ejs', {
             user: req.user,
             person
@@ -136,14 +142,14 @@ router.get('/logout', (req, res) => {
 // Manejo de logn y registro
 
 router.post('/registro', passport.authenticate('local-signup', {
-    failureRedirect: '/login',
+    failureRedirect: '/',
     failureFlash: true,
 }), function(req, res) {
     res.redirect('/perfil?username=' + req.user.local.username);
 });
 
 router.post('/login', passport.authenticate('local-login', {
-    failureRedirect: '/login',
+    failureRedirect: '/',
     failureFlash: true,
 }), function(req, res) {
     res.redirect('/perfil?username=' + req.user.local.username);
