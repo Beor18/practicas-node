@@ -8,6 +8,19 @@ text-shadow: #000 1px 1px 4px; height: 55px !important; margin-top:0px;">
 
 
 </footer>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+<script>
+    var socket = io('http://localhost:3000');
+
+    // socket.on('users.count', function(number) {
+    //     document.getElementById('users-count').innerHTML = number;
+    // });
+
+    socket.on('comment.count', function(data) {
+        $('#posts-count').text(data.count);
+    });
+</script>
 </body>
 
 </html>

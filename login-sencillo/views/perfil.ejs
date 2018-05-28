@@ -11,22 +11,26 @@
             </div>
             <% if (user.local.role == "ADMIN_ROLE") { %>
                 <div class="row">
-                    <div class="col-xs-6 col-md-3">
-                        <a href="#" class="thumbnail">
-                            <img src="http://1.bp.blogspot.com/-LLAgTkEnrKg/U5NdootF24I/AAAAAAAAAIc/86hLho4ZPIM/s1600/Untitled.png" alt="...">
-                        </a>
+                    <div class="col-xs-6 col-md-6">
+                        <div class="panel panel-success">
+                            <div class="panel-heading" style="text-align:center;"><strong>TOTAL DE PRODUCTOS</strong></div>
+                            <div class="panel-body">
+                                <h1 id="posts-count" style="font-size:50px; text-align:center;">
+                                    0
+                                </h1>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="col-xs-6 col-md-3">
-                        <a href="#" class="thumbnail">
-                            <img src="http://1.bp.blogspot.com/-LLAgTkEnrKg/U5NdootF24I/AAAAAAAAAIc/86hLho4ZPIM/s1600/Untitled.png" alt="...">
-                        </a>
-                    </div>
-
-                    <div class="col-xs-6 col-md-3">
-                        <a href="#" class="thumbnail">
-                            <img src="http://1.bp.blogspot.com/-LLAgTkEnrKg/U5NdootF24I/AAAAAAAAAIc/86hLho4ZPIM/s1600/Untitled.png" alt="...">
-                        </a>
+                    <div class="col-xs-6 col-md-6">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading" style="text-align:center;"><strong>USUARIOS CONECTADOS</strong></div>
+                            <div class="panel-body">
+                                <h1 id="users-count" style="font-size:50px; text-align:center;">
+                                    0
+                                </h1>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-xs-6 col-md-3">
@@ -41,5 +45,4 @@
                     <h2>ESTO ES UNA PRUEBA</h2>
 
         </div>
-
         <% include partials/pie %>
