@@ -40,15 +40,37 @@ router.get('/perfil', isLoggedIn, (req, res) => {
 });
 
 // Un nuevo CRUD //
+/////////////////////////////////
+///// este bloque /nuevo no se utiliza más
+// router.get('/nuevo', isLoggedIn, (req, res) => {
+//     Productos.find(function(err, person) {
+//         //if (err) return next(err);
+//         res.render('nuevo.ejs', {
+//             user: req.user,
+//             person
+//         });
+//     });
+// });
 
-router.get('/nuevo', isLoggedIn, (req, res) => {
-    Productos.find(function(err, person) {
-        //if (err) return next(err);
-        res.render('nuevo.ejs', {
-            user: req.user,
-            person
+router.get('/nuevo/:page', isLoggedIn, (req, res, next) => {
+    let perPage = 9;
+    let page = req.params.page || 1;
+
+    Productos
+        .find({})
+        .skip((perPage * page) - perPage)
+        .limit(perPage)
+        .exec((err, person) => {
+            Productos.count((err, count) => {
+                if (err) return next(err);
+                res.render('paginacion/paginacion.ejs', {
+                    person,
+                    user: req.user,
+                    current: page,
+                    pages: Math.ceil(count / perPage)
+                });
+            });
         });
-    });
 });
 
 // Se lista producto en formato JSON
@@ -64,7 +86,7 @@ router.get('/listar-producto', isLoggedIn, (req, res, next) => {
 
 // SE AGREGA NUEVO PRODUCTO
 
-router.post('/nuevo', function(req, res) {
+router.post('/nuevo/1', function(req, res) {
     let body = req.body
 
     let producto = new Productos({
@@ -74,7 +96,7 @@ router.post('/nuevo', function(req, res) {
     })
 
     producto.save(() => {
-        res.redirect('/nuevo');
+        res.redirect('/nuevo/1');
     });
 });
 
@@ -115,7 +137,7 @@ router.get('/delete/:id', isLoggedIn, function(req, res) {
         if (err) {
             return res.send(err);
         } else {
-            res.redirect('/nuevo');
+            res.redirect('/nuevo/1');
         }
     });
 });
