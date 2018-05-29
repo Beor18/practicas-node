@@ -13,19 +13,6 @@ router.get('/', (req, res, next) => {
     res.render('login', { message: req.flash('loginMessaje') });
 });
 
-// // BOLUDECES
-// router.get('/dsdsfsd', (req, res) => {
-//     res.writeHead(200, { 'content-type': 'text/plain' });
-//     res.end('Hola Mundo');
-// });
-
-// router.get('/producto/dsdsfsd', (req, res) => {
-//     res.writeHead(200, { 'content-type': 'text/plain' });
-//     res.end('Hola Mundo');
-// });
-
-// // FIN BOLUDECES
-
 // Solo para el usuario
 
 
