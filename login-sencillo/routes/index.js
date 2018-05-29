@@ -39,19 +39,6 @@ router.get('/perfil', isLoggedIn, (req, res) => {
     });
 });
 
-// Un nuevo CRUD //
-/////////////////////////////////
-///// este bloque /nuevo no se utiliza más
-// router.get('/nuevo', isLoggedIn, (req, res) => {
-//     Productos.find(function(err, person) {
-//         //if (err) return next(err);
-//         res.render('nuevo.ejs', {
-//             user: req.user,
-//             person
-//         });
-//     });
-// });
-
 router.get('/nuevo/:page', isLoggedIn, (req, res, next) => {
     let perPage = 9;
     let page = req.params.page || 1;
