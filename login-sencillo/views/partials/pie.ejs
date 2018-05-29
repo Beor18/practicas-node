@@ -17,6 +17,11 @@ text-shadow: #000 1px 1px 4px; height: 55px !important; margin-top:0px;">
     //     document.getElementById('users-count').innerHTML = number;
     // });
 
+    socket.on('post.add', function(data) {
+        document.getElementById('post.add').innerHTML = data.titulo;
+
+    });
+
     socket.on('comment.count', function(data) {
         $('#posts-count').text(data.count);
     });

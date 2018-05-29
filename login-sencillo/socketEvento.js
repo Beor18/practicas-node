@@ -12,6 +12,7 @@ io.on('connection', (client) => {
     var stream = Productos.find().stream();
 
     stream.on('data', function(productos) {
+        io.sockets.emit('post.add', productos);
         io.sockets.emit('comment.count', {
             count: count++
         });
