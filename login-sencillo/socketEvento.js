@@ -16,7 +16,9 @@ io.on('connection', (client) => {
             if (err) throw err;
     
             if (data) {
+		setTimeout(function(){
                 client.emit('items', data);
+		}, 2000);
             }
 }).limit(2).sort({ _id: -1 });
 
@@ -28,7 +30,9 @@ io.on('connection', (client) => {
 
             if (data) {
                 // RESEND ALL USERS
+		setTimeout(function(){
                 io.sockets.emit('items', data);
+		}, 2000);
             }
         }).limit(2).sort({ _id: -1 });
         //io.sockets.emit('post-add', productos);
