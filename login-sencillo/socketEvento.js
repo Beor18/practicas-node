@@ -30,7 +30,7 @@ io.on('connection', (client) => {
                 // RESEND ALL USERS
                 io.sockets.emit('items', data);
             }
-        });
+        }).limit(2).sort({ _id: -1 });
         //io.sockets.emit('post-add', productos);
     });
 
