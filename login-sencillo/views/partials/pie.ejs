@@ -10,16 +10,25 @@ text-shadow: #000 1px 1px 4px; height: 55px !important; margin-top:0px;">
 </footer>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+<script id="entry-template" type="text/x-handlebars-template">
+    {{#items}}
+    <tr>
+        <th scope="row">1</th>
+        <td>{{ titulo }}</td>
+
+    </tr>
+    {{/items}}
+</script>
 <script>
+    var items = {};
+    var source = document.getElementById("entry-template").innerHTML;
+    var template = Handlebars.compile(source);
     var socket = io('http://localhost:3000');
 
-    // socket.on('users.count', function(number) {
-    //     document.getElementById('users-count').innerHTML = number;
-    // });
-
-    socket.on('post.add', function(data) {
-        document.getElementById('post.add').innerHTML = data.titulo;
-
+    socket.on('post-add', function(data) {
+        items = data;
+        template(data);
+        $('#post-add').html(template(items));
     });
 
     socket.on('comment.count', function(data) {

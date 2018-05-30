@@ -17,13 +17,9 @@ router.get('/', (req, res, next) => {
 
 
 router.get('/perfil', isLoggedIn, (req, res) => {
-    Productos.find(function(err, person) {
-        //if (err) return next(err);
-        res.render('perfil.ejs', {
-            user: req.user,
-            person
-        });
-    }).sort({ $natural: -1 }).limit(2);
+    res.render('perfil.ejs', {
+        user: req.user
+    });
 });
 
 router.get('/nuevo/:page', isLoggedIn, (req, res, next) => {
