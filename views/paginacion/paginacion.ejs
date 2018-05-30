@@ -1,0 +1,149 @@
+<% include ../partials/head %>
+    <% include ../partials/sidebar %>
+        <div class="col-md-10 col-md-offset-2 content">
+
+            <h1>
+                Nuevo Producto
+            </h1>
+
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse1">Formulario Nuevo <span class=" glyphicon glyphicon-chevron-down "></span></a>
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse">
+                        <form action="/nuevo/1" method="post" style="padding:10px;">
+                            <div class="form-group">
+                                <label>Titulo:</label>
+                                <input type="text" class="form-control" name="titulo" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Autor:</label>
+                                <input type="text" class="form-control" name="autor" />
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>Descripción:</label>
+                                <input type="text" class="form-control" name="descripcion" />
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Guardar</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive" style="padding-top:20px; padding-bottom:20px;">
+                <table class=" table table-bordered">
+                    <thead>
+                        <tr>
+                            <!--<th>ID</th>-->
+                            <th>TITULO</th>
+                            <th>AUTOR</th>
+                            <th>DESCRIPCIÓN</th>
+                            <th style="text-align:center !important;">HERRAMIENTAS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(person.length>0){%>
+                            <% for(var i=0; i<person.length; i++) {%>
+                                <tr>
+                                    <!--<td>
+
+                                <%= person[i].id %>
+                                    </a>
+                            </td>-->
+                                    <td>
+                                        <%= person[i].titulo %>
+                                    </td>
+                                    <td>
+                                        <%= person[i].autor %>
+                                    </td>
+
+                                    <td>
+                                        <%= person[i].descripcion %>
+                                    </td>
+
+                                    <td style="text-align:center !important;">
+                                        <a href="http://192.168.0.129:3000/producto/<%= person[i].id %>" type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                        <button type="button" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>
+                                        <a href="http://192.168.0.129:3000/delete/<%= person[i].id %>" type="button" class="btn btn-success btn-xs" style="background:red !important;"><span class="glyphicon glyphicon-remove"></span></a>
+                                    </td>
+
+                                </tr>
+                                <% } %>
+                                    <%} else {%>
+                                        <p class="alert alert-warning">No hay nadda</p>
+                                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row" style="text-align:center !important;">
+                <!-- pagination -->
+                <% if(pages > 0) { %>
+                    <!-- show pagination if there is pages -->
+                    <nav class="mx-auto">
+                        <ul class="pagination">
+                            <!-- FIRST ITEM -->
+                            <% if(current == 1) { %>
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#">Primera Página</a>
+                                </li>
+                                <% } else { %>
+                                    <li class="page-item">
+                                        <a class="page-link" href="/nuevo/1">Primera Página</a>
+                                    </li>
+                                    <% } %>
+                                        <!-- ITEMS  -->
+                                        <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                                            <% if(i !== 1) { %>
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#">...</a>
+                                                </li>
+                                                <% } %>
+                                                    <% for(; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                                                        <% if(i == current) { %>
+                                                            <li class="page-item active">
+                                                                <a class="page-link" href="<%= i %>">
+                                                                    <%= i %>
+                                                                </a>
+                                                            </li>
+                                                            <% } else { %>
+                                                                <li class="page-item">
+                                                                    <a class="page-link" href="/nuevo/<%= i %>">
+                                                                        <%= i %>
+                                                                    </a>
+                                                                </li>
+                                                                <% } %>
+                                                                    <% if (i == Number(current) + 4 && i < pages) { %>
+                                                                        <li class="page-item disabled">
+                                                                            <a class="page-link" href="#">...</a>
+                                                                        </li>
+                                                                        <% } %>
+                                                                            <% } %>
+                                                                                <!-- LAST ITEM -->
+                                                                                <% if(current == pages) { %>
+                                                                                    <li class="page-item disabled">
+                                                                                        <a class="page-link" href="#">
+                                                                                                Última Página
+                </a>
+                                                                                    </li>
+                                                                                    <% } else { %>
+                                                                                        <li class="page-item">
+                                                                                            <a class="page-link" href="/nuevo/<%= pages %>">
+                                                                                                Última Página
+                </a>
+                                                                                        </li>
+                                                                                        <% } %>
+                        </ul>
+                    </nav>
+                    <% } %>
+            </div>
+        </div>
+        <% include ../partials/pie %>
