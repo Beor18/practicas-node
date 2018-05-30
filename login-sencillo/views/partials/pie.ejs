@@ -13,7 +13,7 @@ text-shadow: #000 1px 1px 4px; height: 55px !important; margin-top:0px;">
 <script id="entry-template" type="text/x-handlebars-template">
     {{#items}}
     <tr>
-        <th scope="row">1</th>
+  
         <td>{{ titulo }}</td>
 
     </tr>
@@ -23,11 +23,12 @@ text-shadow: #000 1px 1px 4px; height: 55px !important; margin-top:0px;">
     var items = {};
     var source = document.getElementById("entry-template").innerHTML;
     var template = Handlebars.compile(source);
-    var socket = io('http://localhost:3000');
+    var socket = io.connect('http://192.168.0.129:3000');
 
-    socket.on('post-add', function(data) {
-        items = data;
-        template(data);
+    socket.on('items', function(data) {
+        items['items'] = data;
+	console.log(items);
+        template(items);
         $('#post-add').html(template(items));
     });
 

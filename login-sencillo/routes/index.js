@@ -120,8 +120,8 @@ router.get('/delete/:id', isLoggedIn, function(req, res) {
 
 // Solo para el ROLE ADMIN
 
-router.get('/registro', isLoggedIn, (req, res) => {
-    res.render('registro', { user: req.user, message: req.flash('signupMessage') });
+router.get('/registro', (req, res) => {
+    res.render('registro', { message: req.flash('signupMessage') });
 });
 
 // FIN solo para ROLE ADMIN
