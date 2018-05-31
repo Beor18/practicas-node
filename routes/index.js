@@ -86,19 +86,21 @@ router.get('/producto/:id', isLoggedIn, (req, res, next) => {
 });
 // FIN VER PRODUCTO
 
-// router.put('/editar/:id', function(req, res) {
+router.get('/editar/:id', isLoggedIn, async(req, res, next) => {
+    const { id } = req.params;
+    const person = await Productos.findById(req.params.id);
+    res.render('editar.ejs', {
+        user: req.user,
+        person
+    });
 
-//     Productos.findByIdAndUpdate(req.params.id, { new: true }, (err, person) => {
+});
 
-//         if (err) {
-//             console.log(err);
-//             res.redirect('/perfil');
-//         } else {
-//             res.redirect('/nuevo', person);
-//         }
-
-//     });
-// });
+router.post('/editar/:id', isLoggedIn, async(req, res, next) => {
+    const { id } = req.params;
+    await Productos.update({ _id: id }, req.body);
+    res.redirect('/nuevo/1');
+});
 
 // ELIMINAR PRODUCTO
 

@@ -1,4 +1,4 @@
-<!-- <% include partials/head %> 
+<% include partials/head %>
 
     <% include partials/sidebar %>
         <div class="col-md-10 col-md-offset-2 content">
@@ -7,57 +7,25 @@
                 <%= person.autor%>
             </h1>
 
-            <form action="/update" method="put">
+            <form action="/editar/<%= person._id %>" method="post">
                 <div class="form-group">
                     <label for="titulo">titulo</label>
-                    <input type="text" class="form-control" name="person[titulo]" value="<%= person.titulo %>" />
+                    <input type="text" class="form-control" name="titulo" value="<%= person.titulo %>" />
                 </div>
 
                 <div class="form-group">
                     <label>Autor:</label>
-                    <input type="text" class="form-control" name="person[autor]" value="<%= person.autor %>" />
+                    <input type="text" class="form-control" name="autor" value="<%= person.autor %>" />
 
                 </div>
 
                 <div class="form-group">
                     <label>Descripción:</label>
-                    <input type="text" class="form-control" name="person[descripcion]" value="<%= person.descripcion %>" />
+                    <input type="text" class="form-control" name="descripcion" value="<%= person.descripcion %>" />
                 </div>
-                <input type="hidden" name="person[id]" value="<%= person.id %>">
+
                 <button type="submit" class="btn btn-success">Guardar</button>
 
             </form>
-
-            <div style="padding-top:20px; padding-bottom:20px;">
-                <table class=" table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>TITULO</th>
-                            <th>AUTOR</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% if(person.length>0){%>
-                            <% for(var i=0; i<person.length; i++) {%>
-                                <tr>
-                                    <td>
-                                        <%= person[i].id %>
-                                    </td>
-                                    <td>
-                                        <%= person[i].titulo %>
-                                    </td>
-                                    <td>
-                                        <%= person[i].autor %>
-                                    </td>
-
-                                </tr>
-                                <% } %>
-                                    <%} else {%>
-                                        <p class="alert alert-warning">No hay nadda</p>
-                                        <% } %>
-                    </tbody>
-                </table>
-            </div>
         </div>
-        <% include partials/pie %>-->
+        <% include partials/pie %>
