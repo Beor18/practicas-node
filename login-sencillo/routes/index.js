@@ -1,12 +1,21 @@
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
-const path = require('path');
-
 const Productos = require('../models/producto');
 
-const fileUpload = require('express-fileupload');
-router.use(fileUpload());
+const path = require('path');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function(req, file, callback) {
+        callback(null, './public/uploads');
+    },
+    filename: function(req, file, callback) {
+        callback(null, file.fieldname + '-' + file.originalname.replace(path.extname(file.originalname), '_') + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({ storage: storage });
 
 
 router.get('/', (req, res, next) => {
@@ -135,7 +144,7 @@ router.get('/logout', (req, res) => {
 
 // Manejo de logn y registro
 
-router.post('/registro', passport.authenticate('local-signup', {
+router.post('/registro', upload.single('userPhoto'), passport.authenticate('local-signup', {
     failureRedirect: '/',
     failureFlash: true,
 }), function(req, res) {
