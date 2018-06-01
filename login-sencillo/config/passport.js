@@ -29,7 +29,7 @@ module.exports = (passport) => {
                         newUser.local.password = newUser.generateHash(password);
                         newUser.local.country = req.body.country;
                         newUser.local.role = req.body.role;
-                        newUser.local.foto = req.body.foto;
+                        newUser.local.foto = req.file.filename;
                         newUser.save((err) => {
                             if (err)
                                 throw err;
