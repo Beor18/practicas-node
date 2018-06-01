@@ -1,0 +1,63 @@
+<% include partials/head %>
+
+    <% include partials/sidebar %>
+        <div class="col-md-10 col-md-offset-2 content">
+            <div class="jumbotron">
+
+                <div class="page-header">
+                    <h2>Login <small>realizado en NodeJS</small></h2>
+                </div>
+
+            </div>
+            <% if (user.local.role == "ADMIN_ROLE") { %>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <div class="panel panel-success">
+                            <div class="panel-heading" style="text-align:center;"><strong>TOTAL DE PRODUCTOS</strong></div>
+                            <div class="panel-body">
+                                <h1 id="posts-count" style="font-size:50px; text-align:center;">
+                                    0
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6 col-md-6">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading" style="text-align:center;"><strong>USUARIOS CONECTADOS</strong></div>
+                            <div class="panel-body">
+                                <h1 id="users-count" style="font-size:50px; text-align:center;">
+                                    0
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row col-xs-6 col-md-12">
+                        <h3 class="text-primary">Últimos Registros</h3>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="post-add">
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <% } %>
+
+                    <h2>ESTO ES UNA PRUEBA</h2>
+
+        </div>
+        <% include partials/pie %>
