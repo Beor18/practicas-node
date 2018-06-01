@@ -1,0 +1,29 @@
+<% include partials/head %>
+
+    <body style="height: 683px;">
+
+        <div class="row" style="box-sizing: border-box;padding: 8%;background: #ccc;height: 100%;margin: 0 auto;">
+            <div class="container formulario text-center" style="background: #31708f;
+width: 500px;
+height: auto;
+box-sizing: border-box;
+padding: 60px;
+margin-top: 0px;
+color: #999;
+font-weight: 800;
+box-shadow: 3px 2px 3px -1px;">
+                <h2 style="color:#fff;">Ingresar al Sistema</h2>
+                <form action="/login" method="post">
+                    <div>
+                        <input type="text" name="username" placeholder="Usuario">
+                    </div>
+                    <div>
+                        <input type="password" name="password" placeholder="Contraseña">
+                    </div>
+                    <div style="padding-top:20px;">
+                        <input type="submit" value="Ingresar" class="btn btn-success">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
