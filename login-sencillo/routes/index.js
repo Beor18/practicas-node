@@ -54,12 +54,10 @@ router.get('/nuevo/:page', isLoggedIn, (req, res, next) => {
 
 // Se lista producto en formato JSON
 
-router.get('/listar-producto', isLoggedIn, (req, res, next) => {
-    Productos.find(function(err, products) {
-        if (err) return next(err);
-        res.json(products)
+router.get('/listar-producto', isLoggedIn, async(req, res, next) => {
+    const productos = await Productos.find();
+    res.json(productos);
 
-    });
     //res.render('nuevo.ejs', { user: req.user, producto: req.productos });
 });
 
