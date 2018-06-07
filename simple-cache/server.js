@@ -31,7 +31,7 @@ const cache = (duration) => {
 app.get('/', cache(10), (req, res) => {
     setTimeout(() => {
             res.send({ titulo: 'Hola esto es prueba de cache', mensaje: 'La fecha no se actualiza demasiado rapido cada vez que se actualiza seguido', date: new Date() })
-        }, 5000) // Simulamos una solicitud de procesamiento lento
+        }, 5000) // Simulamos una solicitud de procesamiento lento en 5 segundos
 })
 
 
