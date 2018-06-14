@@ -2,7 +2,7 @@ const { io } = require('./app');
 const Productos = require('./models/producto');
 
 var usuarioContador = 0;
-var viable = Productos.watch();
+//var viable = Productos.watch();
 
 io.on('connection', (client) => {
 
@@ -12,17 +12,17 @@ io.on('connection', (client) => {
     var count = 1;
     var stream = Productos.find().stream().sort({ _id: 1 });
     //var viable = Productos.watch();
- Productos.find({}, {'_id': 0}, (err, data) => {
-            if (err) throw err;
-    
-            if (data) {
-		setTimeout(function(){
-                client.emit('items', data);
-		}, 2000);
-            }
-}).limit(2).sort({ _id: -1 });
+    Productos.find({}, { '_id': 0 }, (err, data) => {
+        if (err) throw err;
 
-    viable.on('change', function(change) {
+        if (data) {
+            setTimeout(function() {
+                io.sockets.emit('items', data);
+            }, 2000);
+        }
+    }).limit(2).sort({ _id: -1 });
+
+    client.on('change', function(change) {
         console.log(change);
         //find('productos').limit(2).sort({ _id: -1 })
         Productos.find({}, (err, data) => {
@@ -30,9 +30,9 @@ io.on('connection', (client) => {
 
             if (data) {
                 // RESEND ALL USERS
-		setTimeout(function(){
-                io.sockets.emit('items', data);
-		}, 2000);
+                setTimeout(function() {
+                    io.sockets.emit('items', data);
+                }, 2000);
             }
         }).limit(2).sort({ _id: -1 });
         //io.sockets.emit('post-add', productos);

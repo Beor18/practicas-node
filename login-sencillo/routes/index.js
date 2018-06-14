@@ -63,16 +63,17 @@ router.get('/listar-producto', isLoggedIn, async(req, res, next) => {
 
 // SE AGREGA NUEVO PRODUCTO
 
-router.post('/nuevo/1', function(req, res) {
+router.post('/nuevo/1', upload.single('fotoproducto'), async(req, res) => {
     let body = req.body
 
     let producto = new Productos({
         titulo: body.titulo,
         autor: body.autor,
-        descripcion: body.descripcion
-    })
+        descripcion: body.descripcion,
+        fotos: req.file.filename
+    });
 
-    producto.save(() => {
+    await producto.save(() => {
         res.redirect('/nuevo/1');
     });
 });

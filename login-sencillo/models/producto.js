@@ -6,6 +6,7 @@ let productoSchema = new Schema({
     titulo: { type: String },
     autor: { type: String },
     descripcion: { type: String },
+    fotos: { type: String, require: true },
     updated_date: { type: Date, default: Date.now }
 });
 //const Productos = mongoose.model('Productos', productoSchema);
