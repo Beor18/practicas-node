@@ -12,22 +12,27 @@ text-shadow: #000 1px 1px 4px; height: 55px !important; margin-top:0px;">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 <script id="entry-template" type="text/x-handlebars-template">
     {{#items}}
-    <tr>
-  
-        <td>{{ titulo }}</td>
-
-    </tr>
+    <div class="col-md-3">
+        <div class="thumbnail">
+            <img src="http://localhost:3000/uploads/{{fotos}}" alt="...">
+            <div class="caption">
+                <h3 style="text-transform:uppercase;">{{titulo}}</h3>
+                <p>{{autor}}</p>
+                <p>{{descripcion}}</p>
+            </div>
+        </div>
+    </div>
     {{/items}}
 </script>
 <script>
     var items = {};
     var source = document.getElementById("entry-template").innerHTML;
     var template = Handlebars.compile(source);
-    var socket = io.connect('http://192.168.0.129:3000');
+    var socket = io.connect('http://localhost:3000');
 
     socket.on('items', function(data) {
         items['items'] = data;
-	console.log(items);
+        console.log(items);
         template(items);
         $('#post-add').html(template(items));
     });

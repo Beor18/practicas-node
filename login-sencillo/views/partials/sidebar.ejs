@@ -22,7 +22,7 @@
             <div class="media page-header" style="padding-top: 30px;">
                 <div class="media-left media-top">
                     <a href="http://#">
-                        <img class="media-object img-circle" src="uploads/<%= user.local.foto %>" alt="..." style="width: 64px; height: 64px;">
+                        <img class="media-object img-circle" src="http://localhost:3000/uploads/<%= user.local.foto %>" alt="..." style="width: 64px; height: 64px;">
                     </a>
                 </div>
 
@@ -40,14 +40,14 @@
 
             <nav style="padding-top: 10px; padding-bottom: 20px;">
                 <ul class="nav nav-pills nav-stacked">
-                    <li role="presentation" class=""><a href="http://192.168.0.129:3000/perfil?username=<%= user.local.username %>"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                    <li role="presentation" class=""><a href="http://localhost:3000/perfil?username=<%= user.local.username %>"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
 
                     <li role="presentation" class="">
-                        <a href="http://192.168.0.129:3000/registro"> <span class="glyphicon glyphicon-user"></span> Registrar Usuarios</a>
+                        <a href="http://localhost:3000/registro"> <span class="glyphicon glyphicon-user"></span> Registrar Usuarios</a>
                     </li>
 
                     <li role="presentation" class="">
-                        <a href="http://192.168.0.129:3000/nuevo/1"> <span class="glyphicon glyphicon-ok"></span> Nuevo Producto</a>
+                        <a href="http://localhost:3000/nuevo/1"> <span class="glyphicon glyphicon-ok"></span> Nuevo Producto</a>
                     </li>
 
                 </ul>

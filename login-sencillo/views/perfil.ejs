@@ -2,13 +2,7 @@
 
     <% include partials/sidebar %>
         <div class="col-md-10 col-md-offset-2 content">
-            <div class="jumbotron">
 
-                <div class="page-header">
-                    <h2>Login <small>realizado en NodeJS</small></h2>
-                </div>
-
-            </div>
             <% if (user.local.role == "ADMIN_ROLE") { %>
                 <div class="row">
                     <div class="col-xs-6 col-md-6">
@@ -33,31 +27,14 @@
                         </div>
                     </div>
 
-                    <div class="row col-xs-6 col-md-12">
-                        <h3 class="text-primary">Últimos Registros</h3>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody id="post-add">
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-
-                        </div>
-                    </div>
 
                 </div>
                 <% } %>
 
-                    <h2>ESTO ES UNA PRUEBA</h2>
+                    <div class="row" id="post-add">
+
+                    </div>
 
         </div>
         <% include partials/pie %>
