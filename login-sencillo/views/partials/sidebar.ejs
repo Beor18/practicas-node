@@ -1,8 +1,9 @@
 <nav class="navbar navbar-default navbar-fixed-top" style="padding:10px;">
     <div class="navbar-header">
         <a class="navbar-brand" href="#">
-            <img alt="SU LOGO" src="http://#">
+            <img src="http://localhost:3000/uploads/icon.png" width="50px" height="50px" style="margin-top: -15px;">
         </a>
+        <p class="navbar-text" style="margin-left:-10px; color: #fff; font-family:Montserrat !important;">TELOS</p>
     </div>
 
     <div class="container">
@@ -19,10 +20,10 @@
         <!-- COMIENZO SIDEBAR -->
 
         <div class="col-md-2 sidebar">
-            <div class="media page-header" style="padding-top: 30px;">
+            <div class="media page-header" style="padding-top: 30px; border-bottom: none;">
                 <div class="media-left media-top">
                     <a href="http://#">
-                        <img class="media-object img-circle" src="http://localhost:3000/uploads/<%= user.local.foto %>" alt="..." style="width: 64px; height: 64px;">
+                        <img class="media-object img-circle" src="http://localhost:3000/uploads/<%= user.local.foto %>" alt="..." style="width: 72px; height: 72px; border: 2px solid #fff;">
                     </a>
                 </div>
 
@@ -47,7 +48,15 @@
                     </li>
 
                     <li role="presentation" class="">
-                        <a href="http://localhost:3000/nuevo/1"> <span class="glyphicon glyphicon-ok"></span> Nuevo Producto</a>
+                        <a href="http://localhost:3000/nuevo/1"> <span class="glyphicon glyphicon-heart"></span> Telos Registrados</a>
+                    </li>
+
+                    <li role="presentation" class="">
+                        <a href="#"> <span class="glyphicon glyphicon-cutlery"></span> Restaurantes</a>
+                    </li>
+
+                    <li role="presentation" class="">
+                        <a href="#"> <span class="glyphicon glyphicon-info-sign"></span> Términos y privacidad</a>
                     </li>
 
                 </ul>

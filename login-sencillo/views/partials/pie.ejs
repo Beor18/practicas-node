@@ -1,24 +1,30 @@
-<footer class="col-md-10 col-md-offset-2 content" style="background: rgba(80, 77, 77, 0.77) !important; padding-top: 10px; padding-right: 20px; padding-bottom: 10px; color: #fff;
-text-shadow: #000 1px 1px 4px; height: 55px !important; margin-top:0px;">
-
-    <div class="container col-md-12">
-        <h4 style="text-align: right !important; font-size: 9px !important;">Desarrollado por Fernando López 2018
-        </h4>
-    </div>
-
-
-</footer>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 <script id="entry-template" type="text/x-handlebars-template">
     {{#items}}
     <div class="col-md-3">
-        <div class="thumbnail">
-            <img src="http://localhost:3000/uploads/{{fotos}}" alt="...">
+        <div class="thumbnail" style="padding:0;">
+
+            <div class="media page-header" style="padding-left: 10px; padding-bottom: 0; padding-top: 10px;  border-bottom:none !important;">
+                <div class="media-left media-top">
+                    <img class="media-object img-circle" src="http://localhost:3000/uploads/{{fotoperfil}}" alt="..." style="width: 40px !important; height: 40px !important; border: 2px solid #fff;">
+
+                </div>
+
+                <div class="media-body" style="padding-top: 10px;">
+                    <a href="http://localhost:3000/perfil?username={{autor}}">
+                        <p class="media-heading" style="font-size:14px; color: #262626;"><strong>{{autor}}</strong></p>
+                    </a>
+
+                </div>
+            </div>
+            <img src="http://localhost:3000/uploads/{{fotos}}" style="width:100%; height:auto; margin-top:0px;">
             <div class="caption">
-                <h3 style="text-transform:uppercase;">{{titulo}}</h3>
-                <p>{{autor}}</p>
+                <h3 style="text-transform:uppercase; font-size:17px;">{{titulo}}</h3>
+
                 <p>{{descripcion}}</p>
+                <p>{{provincias}}</p>
+                <p>{{tarifas}}</p>
             </div>
         </div>
     </div>

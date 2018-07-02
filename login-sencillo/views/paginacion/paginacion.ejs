@@ -3,36 +3,106 @@
         <div class="col-md-10 col-md-offset-2 content">
 
             <h1>
-                Nuevo Producto
+                TELOS REGISTRADOS
             </h1>
 
             <div class="panel-group">
-                <div class="panel panel-default">
+                <div class="panel panel-danger">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#collapse1">Formulario Nuevo <span class=" glyphicon glyphicon-chevron-down "></span></a>
+                        <h4 class="panel-title" style="color:#fff !important;">
+                            <a data-toggle="collapse" href="#collapse1">Nuevo Telo <span class=" glyphicon glyphicon-chevron-down "></span></a>
                         </h4>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse">
                         <form action="/nuevo/1" method="post" style="padding:10px;" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label>Titulo:</label>
+                                <label>Nombre del Lugar: </label>
                                 <input type="text" class="form-control" name="titulo" />
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" style="display:none;">
                                 <label>Autor:</label>
-                                <input type="text" class="form-control" name="autor" />
+                                <input type="text" id="disabledTextInput" class="form-control" name="autor" value="<%= user.local.username %>" />
 
                             </div>
 
-                            <div class="form-group">
-                                <label>Descripción:</label>
-                                <input type="text" class="form-control" name="descripcion" />
+                            <div class="form-group" style="display:none;">
+                                <label>Foto Perfil: </label>
+                                <input type="text" id="disabledTextInput" class="form-control" name="fotoperfil" value="<%= user.local.foto %>" />
                             </div>
 
                             <div class="form-group">
-                                <input class="form-control" type="file" name="fotoproducto" />
+                                <label>Teléfono:</label>
+                                <input type="text" class="form-control" name="telefono" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tarifas:</label>
+                                <input type="text" class="form-control" name="tarifas" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Dirección:</label>
+                                <input type="text" class="form-control" name="descripcion" maxlength="120" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>¿Destacado?</label><br>
+                                <select name="destacados">
+                                            <option value="destacados">Telo Destacado</option>
+                                            <option value="no_destacado">No Destacado</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Provincia: </label><br>
+                                <select name="provincias">
+                                                <option value="Buenos Aires">Buenos Aires</option>
+                                                <option value="Santa Fe">Santa Fe</option>
+                                                <option value="Cordoba">Cordoba</option>
+                                    </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Servicios: </label><br>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox1" name="servicios" value="WIFI"> WiFi
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox2" name="servicios" value="TV Satelital"> TV Satelital
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox3" name="servicios" value="Servicio a la habitacion"> Servicio a la habitacion
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox3" name="servicios" value="DVD"> DVD
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox3" name="servicios" value="Estacionamientos individuales"> Estacionamientos individuales
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox3" name="servicios" value="Señal para adultos"> Señal para adultos
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Iframe Mapa:</label>
+                                <input type="text" class="form-control" name="iframe" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Latitude:</label>
+                                <input type="text" class="form-control" name="latitude" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Longitude:</label>
+                                <input type="text" class="form-control" name="longitude" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Subir Foto (Máx. 2MB):</label>
+                                <input class="form-control" style="border:none !important; background:none; box-shadow:none !important; padding:0px !important;" type="file" name="fotoproducto" />
                             </div>
 
                             <button type="submit" class="btn btn-success">Guardar</button>
@@ -47,9 +117,9 @@
                     <thead>
                         <tr>
                             <!--<th>ID</th>-->
-                            <th>TITULO</th>
-                            <th>AUTOR</th>
-                            <th>DESCRIPCIÓN</th>
+                            <th>NOMBRE DEL LUGAR</th>
+                            <th>PUBLICADO POR</th>
+                            <th>DIRECCIÓN</th>
                             <th style="text-align:center !important;">HERRAMIENTAS</th>
                         </tr>
                     </thead>
@@ -82,7 +152,7 @@
                                 </tr>
                                 <% } %>
                                     <%} else {%>
-                                        <p class="alert alert-warning">No hay nadda</p>
+                                        <p class="alert alert-warning">No hay Registro!</p>
                                         <% } %>
                     </tbody>
                 </table>

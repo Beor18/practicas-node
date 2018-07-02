@@ -3,38 +3,42 @@
     <% include partials/sidebar %>
         <div class="col-md-10 col-md-offset-2 content">
 
-            <% if (user.local.role == "ADMIN_ROLE") { %>
-                <div class="row">
-                    <div class="col-xs-6 col-md-6">
-                        <div class="panel panel-success">
-                            <div class="panel-heading" style="text-align:center;"><strong>TOTAL DE PRODUCTOS</strong></div>
-                            <div class="panel-body">
-                                <h1 id="posts-count" style="font-size:50px; text-align:center;">
-                                    0
-                                </h1>
-                            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading" style="text-align:center;"><strong>TOTAL DE TELOS REGISTRADOS</strong></div>
+                        <div class="panel-body">
+                            <h1 id="posts-count" style="font-size:50px; text-align:center;">
+                                0
+                            </h1>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col-xs-6 col-md-6">
-                        <div class="panel panel-danger">
-                            <div class="panel-heading" style="text-align:center;"><strong>USUARIOS CONECTADOS</strong></div>
-                            <div class="panel-body">
-                                <h1 id="users-count" style="font-size:50px; text-align:center;">
-                                    0
-                                </h1>
-                            </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading" style="text-align:center;"><strong>DESCUENTO 20% EN TELOS</strong></div>
+                        <div class="panel-body">
+                            <h1 style="font-size:50px; text-align:center;">
+                                T3L0s86W
+                            </h1>
                         </div>
                     </div>
 
 
 
                 </div>
-                <% } %>
 
-                    <div class="row" id="post-add">
+            </div>
 
-                    </div>
+            <div class="page-header">
+                <h1>Telos Destacados</h1>
+            </div>
+            <div class="row" id="post-add">
+
+            </div>
+
 
         </div>
         <% include partials/pie %>

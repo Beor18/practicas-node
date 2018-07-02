@@ -12,7 +12,7 @@ io.on('connection', (client) => {
     var count = 1;
     var stream = Productos.find().stream().sort({ _id: 1 });
     //var viable = Productos.watch();
-    Productos.find({}, { '_id': 0 }, (err, data) => {
+    Productos.find({ destacados: "destacados" }, { '_id': 0 }, (err, data) => {
         if (err) throw err;
 
         if (data) {
@@ -20,12 +20,12 @@ io.on('connection', (client) => {
                 io.sockets.emit('items', data);
             }, 2000);
         }
-    }).limit(2).sort({ _id: -1 });
+    }).limit(4).sort({ _id: -1 });
 
     client.on('change', function(change) {
         console.log(change);
         //find('productos').limit(2).sort({ _id: -1 })
-        Productos.find({}, (err, data) => {
+        Productos.find({ destacados: "destacados" }, (err, data) => {
             if (err) throw err;
 
             if (data) {
@@ -34,7 +34,7 @@ io.on('connection', (client) => {
                     io.sockets.emit('items', data);
                 }, 2000);
             }
-        }).limit(2).sort({ _id: -1 });
+        }).limit(4).sort({ _id: -1 });
         //io.sockets.emit('post-add', productos);
     });
 

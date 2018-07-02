@@ -3,28 +3,82 @@
     <% include partials/sidebar %>
         <div class="col-md-10 col-md-offset-2 content">
             <h1>
-                Editar Producto
-                <%= person.autor%>
+                Actualizar Telo
+                <%= person.titulo%>
             </h1>
 
             <form action="/editar/<%= person._id %>" method="post">
                 <div class="form-group">
-                    <label for="titulo">titulo</label>
+                    <label for="titulo">Nombre del Lugar:</label>
                     <input type="text" class="form-control" name="titulo" value="<%= person.titulo %>" />
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" style="display:none;">
                     <label>Autor:</label>
                     <input type="text" class="form-control" name="autor" value="<%= person.autor %>" />
 
                 </div>
 
                 <div class="form-group">
-                    <label>Descripción:</label>
+                    <label>Teléfono:</label>
+                    <input type="text" class="form-control" name="telefono" value="<%= person.telefono %>" />
+                </div>
+
+                <div class="form-group">
+                    <label>Tarifas:</label>
+                    <input type="text" class="form-control" name="tarifas" value="<%= person.tarifas %>" />
+                </div>
+
+                <div class="form-group">
+                    <label>Dirección:</label>
                     <input type="text" class="form-control" name="descripcion" value="<%= person.descripcion %>" />
                 </div>
 
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <div class="form-group">
+                    <label>¿Destacado?</label><br>
+                    <select name="destacados">
+                                    <option value="destacados">Telo Destacado</option>
+                                    <option value="no_destacado">No Destacado</option>
+                        </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Provincia: </label><br>
+                    <select name="provincias">
+                                        <option value="Buenos Aires">Buenos Aires</option>
+                                        <option value="Santa Fe">Santa Fe</option>
+                                        <option value="Cordoba">Cordoba</option>
+                            </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Servicios: </label><br>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox1" name="servicios" value="WIFI"> WiFi
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox2" name="servicios" value="TV Satelital"> TV Satelital
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox3" name="servicios" value="Servicio a la habitacion"> Servicio a la habitacion
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox3" name="servicios" value="DVD"> DVD
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox3" name="servicios" value="Estacionamientos individuales"> Estacionamientos individuales
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox3" name="servicios" value="Señal para adultos"> Señal para adultos
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label>Iframe Mapa:</label>
+                    <input type="text" class="form-control" name="iframe" />
+                </div>
+
+                <button type="submit" class="btn btn-success">Actualizar</button>
 
             </form>
         </div>

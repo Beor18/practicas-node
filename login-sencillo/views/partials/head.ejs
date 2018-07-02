@@ -2,9 +2,10 @@
 <html>
 
 <head>
-    <title>Sistema Prueba</title>
+    <title>TELOS | Tu Escape a la Pasión</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
@@ -29,6 +30,7 @@
         
         h1 {
             font-size: 20px;
+            font-family: "Montserrat";
         }
         
         .fondo {
@@ -36,6 +38,27 @@
             ;
             background-size: cover;
             height: 633px;
+        }
+        
+        .panel-danger>.panel-heading {
+            color: #fff !important;
+            background-color: #7e1e21e6 !important;
+            border-color: #7e1e21e6 !important;
+            text-shadow: 1px 0px 1px #000 !important;
+            text-transform: uppercase !important;
+        }
+        
+        .panel-success>.panel-heading {
+            color: #fff !important;
+            background-color: #3c763d !important;
+            border-color: #3c763d !important;
+            text-shadow: 1px 0px 1px #000 !important;
+            text-transform: uppercase !important;
+        }
+        
+        .navbar-default {
+            background-color: #3e0c0b !important;
+            border-color: #e7e7e7;
         }
         
         @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
@@ -214,8 +237,22 @@
         }
         
         .sidebar {
-            background-color: #CCCCCC;
+            /* background: linear-gradient(0deg, rgba(62, 12, 11, 1) 100%, rgba(62, 12, 11, 0.8855742125951943) 340%);*/
+            background: #7e1e21 !important;
+            color: #fff;
+            text-shadow: 0px 0px 1px #000;
             margin-top: 71px;
+            height: 100% !important;
+        }
+        
+        .sidebar ul li a {
+            color: #fff;
+            text-shadow: 0px 0px 1px #000;
+        }
+        
+        .sidebar ul li a:hover {
+            color: #fff;
+            background: #ccc;
         }
         
         .content {

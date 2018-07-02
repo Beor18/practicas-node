@@ -69,7 +69,16 @@ router.post('/nuevo/1', upload.single('fotoproducto'), async(req, res) => {
     let producto = new Productos({
         titulo: body.titulo,
         autor: body.autor,
+        fotoperfil: body.fotoperfil,
         descripcion: body.descripcion,
+        destacados: body.destacados,
+        provincias: body.provincias,
+        telefono: body.telefono,
+        tarifas: body.tarifas,
+        servicios: body.servicios,
+        iframe: body.iframe,
+        latitude: body.latitude,
+        longitude: body.longitude,
         fotos: req.file.filename
     });
 
